@@ -21,22 +21,17 @@ jobs:
         steps:
             - name: Echo start deploy
               run: echo "start deploy"
-            # - name: SSH and deploy
-            #   uses: appleboy/ssh-action@v1.0.3
-            #   with:
-            #       host: ${{ secrets.DEPLOY_HOST }}
-            #       username: ${{ secrets.DEPLOY_USER }}
-            #       key: ${{ secrets.DEPLOY_KEY }}
-            #       script: |
-            #           cd /home/test/ideasdee-backend
-            #           # Login to registry
-            #           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            - name: SSH and deploy
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.DEPLOY_HOST }}
+                  username: ${{ secrets.DEPLOY_USER }}
+                  key: ${{ secrets.DEPLOY_KEY }}
+                  script: |
+                      cd /home/newone
+                      echo "connected!""
+                      # Login to registry
+                      touch newfile.txt
+                      echo "file created!"
 
-            #           docker stop $(echo $IMAGE_NAME)
-            #           # Remove old container
-            #           docker rm $(echo $IMAGE_NAME)
-            #           # Run a new container from a new image
-            #           docker run -d \
-            #           --restart always \
-            #           --name $(echo $IMAGE_NAME) \
-            #           ${{ secrets.DOCKER_USERNAME }}/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+                      
