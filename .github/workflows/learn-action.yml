@@ -29,7 +29,9 @@ jobs:
                   key: ${{ secrets.DEPLOY_KEY }}
                   script: |
                       cd /home/newone
-                      echo "connected!""
+                      pwd
+                      echo "connected!"
                       # Login to registry
                       touch newfile.txt
                       echo "file created!"
+                      EOF
