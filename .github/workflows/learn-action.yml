@@ -34,5 +34,5 @@ jobs:
                       # Login to registry
                       touch newfile.txt
                       echo "file created!"
-                      EOF
+                      
 
