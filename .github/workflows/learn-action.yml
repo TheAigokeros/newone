@@ -2,12 +2,10 @@ name: Deploy NestJS Application
 
 on:
     push:
-        branches: ['develop', 'test/github-action']
-    pull_request:
-        branches: ['develop', 'test/github-action']
-
+        branches: ['main']
+    
 env:
-    IMAGE_NAME: 'ideasdee-backend'
+    IMAGE_NAME: 'test-backend'
 
 jobs:
     build:
